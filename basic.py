@@ -49,7 +49,7 @@ def lexer(filecontents):
     return tokens
 
 def create_file(filename):
-    filename = filename[8:-1]
+    filename = filename[8:-1] + ".html"
     open(filename,"w")
 
 def parser(toks):
