@@ -1,0 +1,2 @@
+start "index"
+addinside "body" "p" "myid"
