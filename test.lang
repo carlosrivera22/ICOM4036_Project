@@ -1,2 +1,13 @@
 start "index"
+<<<<<<< HEAD
 addinside "body" "p" "myid"
+=======
+
+add div "myid"
+
+addinside "myid" h1 "header"
+
+put "header" "Hello World!"
+
+style "header" "bluetext"
+>>>>>>> origin/master
