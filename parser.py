@@ -21,6 +21,8 @@ def parser(toks):
             i+=3
         else:
             i+=1
+            #si llega aqui al final del proyecto hay un error en como esta
+            #escribiendo su codigo el usuario. 
 
 #methods used in the parser
 
