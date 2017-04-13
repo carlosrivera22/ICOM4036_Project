@@ -1,6 +1,5 @@
 from sys import *
 
-
 tokens = []
 symbols = {}
 
@@ -37,6 +36,9 @@ def lexer(filecontents):
             tok = ""
         elif tok == "ADDAFTER" or tok == "addafter":
             tokens.append("ADDAFTER")
+            tok = ""
+        elif tok == "ADD " or tok == "add ":
+            tokens.append("ADD")
             tok = ""
         elif tok == "\"" or tok == " \"":
             if state == 0:
@@ -77,6 +79,17 @@ def write_in_file(filename, contents):
 #remember that the tag will be placed after,before or inside another tag...
 #maybe change the create command to addinside, addafter and addbefore commands and deal with them separately
 
+def add(tag, id):
+    if tag == "p" or tag == "h1" or tag == "h2" or tag == "h3" or tag == "h4" or tag == "h5" or tag == "h6" or tag == "div":
+        contents = get_file_contents("index.html")
+        index = find_body_index()
+        tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + ">\n"
+        contents.insert(index,tag)
+        write_in_file("index.html",contents)
+        print(contents)
+    else:
+        print("not valid tag for inside body")
+
 def add_inside(target,tag,id):
     if tag == "p" or tag == "h1" or tag == "h2" or tag == "h3" or tag == "h4" or tag == "h5" or tag == "h6":
         print("valid tag")
@@ -91,7 +104,19 @@ def add_inside(target,tag,id):
 
 def find_index_inside(target):
     contents = get_file_contents("index.html")
-    target = "<" + target + ">\n"
+    print(target)
+    i = 0
+    while(i < len(contents)):
+        if contents[i].find(target) == -1:
+            i+=1
+        else:
+            print("found")
+            return i+1
+    return False #throw an error
+
+def find_body_index():
+    contents = get_file_contents("index.html")
+    target = "<body>\n"
     print(target)
     i = 0
     while(i < len(contents)):
@@ -99,7 +124,6 @@ def find_index_inside(target):
             return i + 1
         i+=1
     return False #throw an error
-
 
 def parser(toks):
     i = 0
@@ -110,10 +134,11 @@ def parser(toks):
         elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2][0:6] + " " + toks[i+3][0:6] == "ADDINSIDE STRING STRING STRING":
             add_inside(toks[i+1][8:-1],toks[i+2][8:-1], toks[i+3][8:-1])
             i+=4
-
-
-
-
+        elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2][0:6] == "ADD STRING STRING":
+            add(toks[i+1][8:-1],toks[i+2][8:-1])
+            i+=3
+        if(i == len(toks)):
+            i+=1
 
 def run():
     data = open_file(argv[1])

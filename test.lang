@@ -1,2 +1,3 @@
 start "index"
-addinside "body" "p" "myid"
+add "div" "myid"
+addinside "myid" "h1" "header"
