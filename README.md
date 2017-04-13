@@ -1,0 +1,15 @@
+# ICOM4036_Project
+
+To Run: 
+
+1) Download ZIP FILE 
+
+2) OPEN TERMINAL AND ACCESS THE PROJECT FOLDER WITH THE "cd" COMMAND
+
+  EXAMPLE: cd Desktop/ICOM4036_Project
+  
+3) TO RUN TYPE THE FOLLOWING:
+
+  python3 basic.py test.lang
+  
+4) CHECK OUT THE RESULTING .html FILE 
