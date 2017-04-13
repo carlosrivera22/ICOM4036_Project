@@ -5,3 +5,5 @@ add "div" "myid"
 addinside "myid" "h1" "header"
 
 put "header" "Hello World!"
+
+style "header" "bluetext"
