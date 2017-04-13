@@ -21,8 +21,6 @@ def parser(toks):
             i+=3
         else:
             i+=1
-            #si llega aqui al final del proyecto hay un error en como esta
-            #escribiendo su codigo el usuario. 
 
 #methods used in the parser
 
@@ -46,7 +44,7 @@ def write_in_file(filename, contents):
 def add(tag, id):
         contents = get_file_contents("index.html")
         index = find_body_index()
-        tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + ">\n"
+        tag = "<" + tag + "id='"+ id + "'>\n" + "</" + tag + ">\n"
         contents.insert(index,tag)
         write_in_file("index.html",contents)
 
@@ -54,7 +52,7 @@ def add(tag, id):
 def add_inside(target,tag,id):
         contents = get_file_contents("index.html")
         index = find_index_inside(target)
-        tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + ">\n"
+        tag = "<" + tag + "id='"+ id + "'>\n" + "</" + tag + ">\n"
         contents.insert(index,tag)
         write_in_file("index.html",contents)
 

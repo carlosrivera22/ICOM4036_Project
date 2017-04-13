@@ -14,7 +14,7 @@ def lexer(filecontents):
         if tok == " ": #ignore spaces
             if state == 0:
                 tok = ""
-        elif tok == " p " or tok == " h1 " or tok == " h2 " or tok == " h3 " or tok == " h4 " or tok == " h5 " or tok == " h6 " or tok == " div ":
+        elif tok == "p " or tok == "h1 " or tok == "h2 " or tok == "h3 " or tok == "h4 " or tok == "h5 " or tok == "h6 " or tok == "div ":
             tokens.append("TAG:" + tok)
             tok = ""
         elif tok == "\n" or tok == "<EOF>": #what will happen if we reach a new line or the end of the file?
