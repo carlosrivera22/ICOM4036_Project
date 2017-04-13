@@ -1,8 +1,8 @@
 start "index"
 
-add "div" "myid"
+add div "myid"
 
-addinside "myid" "h1" "header"
+addinside "myid" h1 "header"
 
 put "header" "Hello World!"
 

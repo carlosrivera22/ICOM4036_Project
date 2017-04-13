@@ -5,19 +5,19 @@ def parser(toks):
         if toks[i] + " " + toks[i+1][0:6] == "START STRING":
             create_file(toks[i+1])
             i+=2
-        elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2][0:6] == "PUT STRING STRING":
-            put_content(toks[i+1][8:-1],toks[i+2][8:-1])
-            i+=3
         elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2][0:6] == "STYLE STRING STRING":
             print("STYLE SOMETHING...")
             style(toks[i+1][8:-1],toks[i+2][8:-1],style_init)
             style_init = True
             i+=3
-        elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2][0:6] + " " + toks[i+3][0:6] == "ADDINSIDE STRING STRING STRING":
-            add_inside(toks[i+1][8:-1],toks[i+2][8:-1], toks[i+3][8:-1])
+        elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2][0:6] == "PUT STRING STRING":
+            put_content(toks[i+1][8:-1],toks[i+2][8:-1])
+            i+=3
+        elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2][0:3] + " " + toks[i+3][0:6] == "ADDINSIDE STRING TAG STRING":
+            add_inside(toks[i+1][8:-1],toks[i+2][4:], toks[i+3][8:-1])
             i+=4
-        elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2][0:6] == "ADD STRING STRING":
-            add(toks[i+1][8:-1],toks[i+2][8:-1])
+        elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2][0:6] == "ADD TAG STRING":
+            add(toks[i+1][4:],toks[i+2][8:-1])
             i+=3
         else:
             i+=1
@@ -42,27 +42,20 @@ def write_in_file(filename, contents):
     f.close()
 
 def add(tag, id):
-    if tag == "p" or tag == "h1" or tag == "h2" or tag == "h3" or tag == "h4" or tag == "h5" or tag == "h6" or tag == "div" or tag == "style":
         contents = get_file_contents("index.html")
         index = find_body_index()
         tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + ">\n"
         contents.insert(index,tag)
         write_in_file("index.html",contents)
 
-    else:
-        print("not valid tag for inside body")
 
 def add_inside(target,tag,id):
-    if tag == "p" or tag == "h1" or tag == "h2" or tag == "h3" or tag == "h4" or tag == "h5" or tag == "h6":
-
         contents = get_file_contents("index.html")
         index = find_index_inside(target)
         tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + ">\n"
         contents.insert(index,tag)
         write_in_file("index.html",contents)
 
-    else:
-        print("not a valid tag") #throw an error
 
 #todo lo que tenga que ver con styling se puede hacer en una clase aparte
 

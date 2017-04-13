@@ -15,6 +15,5 @@ def run():
     data = open_file(argv[1])
     toks = lexer(data)
     parser(toks)
-    print(get_file_contents("index.html"))
 
 run()
