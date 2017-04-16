@@ -74,6 +74,18 @@ def lexer(filecontents):
                     tokens.append("MARGINTOP")
                 elif style[0:13] + style[-1] == "(marginbottom)":
                     tokens.append("MARGINBOTTOM")
+                elif style[0:12] + style[-1] == "(paddingleft)":
+                    tokens.append("PADDINGLEFT")
+                elif style[0:13] + style[-1] == "(paddingright)":
+                    tokens.append("PADDINGRIGHT")
+                elif style[0:11] + style[-1] == "(paddingtop)":
+                    tokens.append("PADDINGTOP")
+                elif style[0:14] + style[-1] == "(paddingbottom)":
+                    tokens.append("PADDINGBOTTOM")
+                elif style[0:6] + style[-1] == "(width)":
+                    tokens.append("WIDTH")
+                elif style[0:7] + style[-1] == "(height)":
+                    tokens.append("HEIGHT")
                 style = ""
                 style_state = 0
                 style_activate = 0

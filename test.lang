@@ -18,4 +18,6 @@ put "par1" "This is my first paragraph of the project."
 
 style "header" (marginleft:100px)
 
-style "par1" (marginleft:100px)
+style "par1" (paddingleft:100px)
+
+style "myid" (width:500px)

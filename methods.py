@@ -97,6 +97,24 @@ def get_margin_top(target,margin):
 def get_margin_bottom(target,margin):
     return "#"+ target + "{" + "margin-bottom:" + margin[13:] + "}"
 
+def get_padding_left(target,padding):
+    return "#"+ target + "{" + "padding-left:" + padding[12:] + "}"
+
+def get_padding_right(target,padding):
+    return "#"+ target + "{" + "padding-right:" + padding[13:] + "}"
+
+def get_padding_top(target,padding):
+    return "#"+ target + "{" + "padding-top:" + padding[11:] + "}"
+
+def get_padding_bottom(target,padding):
+    return "#"+ target + "{" + "padding-bottom:" + padding[14:] + "}"
+
+def get_height(target,height):
+    return "#"+ target + "{" + "height:" + height[7:] + "}"
+
+def get_width(target,width):
+    return "#"+ target + "{" + "width:" + width[6:] + "}"
+
 def style(target,style_command,style_type,style_init): #we need to make a list of style commands, validate them depending on the tag...
     if style_init == False:
         add_last("style","mystyle")
@@ -121,6 +139,26 @@ def style(target,style_command,style_type,style_init): #we need to make a list o
     elif style_type == "MARGINBOTTOM":
         content = get_margin_bottom(target,style_command)
         put_content("mystyle",content)
+    elif style_type == "PADDINGBOTTOM":
+        content = get_padding_bottom(target,style_command)
+        put_content("mystyle",content)
+    elif style_type == "PADDINGTOP":
+        content = get_padding_top(target,style_command)
+        put_content("mystyle",content)
+    elif style_type == "PADDINGLEFT":
+        content = get_padding_left(target,style_command)
+        put_content("mystyle",content)
+    elif style_type == "PADDINGRIGHT":
+        content = get_padding_right(target,style_command)
+        put_content("mystyle",content)
+    elif style_type == "WIDTH":
+        content = get_width(target,style_command)
+        put_content("mystyle",content)
+    elif style_type == "HEIGHT":
+        content = get_height(target,style_command)
+        put_content("mystyle",content)
+
+
 
 
 def find_index_inside(target):
