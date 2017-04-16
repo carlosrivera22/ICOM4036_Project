@@ -1,5 +1,6 @@
 start "index"
 
+
 add div "myid"
 
 addinside "myid" h1 "header"
@@ -9,3 +10,10 @@ put "header" "Hello World!"
 style "header" (customColortext:#81ff00)
 
 style "myid" (bluebackground)
+
+style "header" (fontsize:100px)
+
+addafter "myid" p "par1"
+
+put "par1" "This is my first paragraph of the project, so yeah
+ I am pretty exited!"

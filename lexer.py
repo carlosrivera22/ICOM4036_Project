@@ -5,6 +5,7 @@ def lexer(filecontents):
     state = 0
     style = ""
     style_state = 0
+    style_activate = 0
     filecontents = list(filecontents)
     for char in filecontents:
         tok += char
@@ -39,6 +40,7 @@ def lexer(filecontents):
             tokens.append("ADD")
             tok = ""
         elif tok == "STYLE" or tok == "style ":
+            style_activate = 1
             tokens.append("STYLE")
             tok = ""
         elif tok == "\"" or tok == " \"":
@@ -52,7 +54,7 @@ def lexer(filecontents):
         elif state == 1:
             string += tok
             tok = ""
-        elif tok == "(" or tok == ")":
+        elif (tok == "(" or tok == ")") and style_activate == 1:
             if style_state == 0:
                 style_state = 1
             elif style_state == 1:
@@ -62,9 +64,11 @@ def lexer(filecontents):
                     tokens.append("FONTCOLOR")
                 elif style == "(bluebackground)" or style == "(redbackground)" or style == "(greenbackground)" or style == "(orangebackground)" or style == "(purplebackground)" or style == "(blackbackground)" or style == "(yellowbackground)" or style[0:22] + style[-1] =="(customColorbackground)":
                     tokens.append("BACKGROUNDCOLOR")
-                    print(style[23:-1])
+                elif style[0:9] + style[-1] == "(fontsize)":
+                    tokens.append("FONTSIZE")
                 style = ""
                 style_state = 0
+                style_activate = 0
                 tok = ""
         elif style_state == 1:
             style += tok
