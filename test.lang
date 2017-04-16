@@ -1,6 +1,5 @@
 start "index"
 
-
 add div "myid"
 
 addinside "myid" h1 "header"
@@ -15,5 +14,8 @@ style "header" (fontsize:100px)
 
 addafter "myid" p "par1"
 
-put "par1" "This is my first paragraph of the project, so yeah
- I am pretty exited!"
+put "par1" "This is my first paragraph of the project."
+
+style "header" (marginleft:100px)
+
+style "par1" (marginleft:100px)

@@ -66,6 +66,14 @@ def lexer(filecontents):
                     tokens.append("BACKGROUNDCOLOR")
                 elif style[0:9] + style[-1] == "(fontsize)":
                     tokens.append("FONTSIZE")
+                elif style[0:11] + style[-1] == "(marginleft)":
+                    tokens.append("MARGINLEFT")
+                elif style[0:12] + style[-1] == "(marginright)":
+                    tokens.append("MARGINRIGHT")
+                elif style[0:10] + style[-1] == "(margintop)":
+                    tokens.append("MARGINTOP")
+                elif style[0:13] + style[-1] == "(marginbottom)":
+                    tokens.append("MARGINBOTTOM")
                 style = ""
                 style_state = 0
                 style_activate = 0

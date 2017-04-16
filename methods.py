@@ -85,6 +85,18 @@ def get_background_color(target,color):
 def get_font_size(target,size):
     return "#"+ target + "{" + "font-size:" + size[9:] + "}"
 
+def get_margin_left(target,margin):
+    return "#"+ target + "{" + "margin-left:" + margin[11:] + "}"
+
+def get_margin_right(target,margin):
+    return "#"+ target + "{" + "margin-right:" + margin[12:] + "}"
+
+def get_margin_top(target,margin):
+    return "#"+ target + "{" + "margin-top:" + margin[10:] + "}"
+
+def get_margin_bottom(target,margin):
+    return "#"+ target + "{" + "margin-bottom:" + margin[13:] + "}"
+
 def style(target,style_command,style_type,style_init): #we need to make a list of style commands, validate them depending on the tag...
     if style_init == False:
         add_last("style","mystyle")
@@ -96,6 +108,18 @@ def style(target,style_command,style_type,style_init): #we need to make a list o
         put_content("mystyle",content)
     elif style_type == "FONTSIZE":
         content = get_font_size(target,style_command)
+        put_content("mystyle",content)
+    elif style_type == "MARGINLEFT":
+        content = get_margin_left(target,style_command)
+        put_content("mystyle",content)
+    elif style_type == "MARGINRIGHT":
+        content = get_margin_right(target,style_command)
+        put_content("mystyle",content)
+    elif style_type == "MARGINTOP":
+        content = get_margin_top(target,style_command)
+        put_content("mystyle",content)
+    elif style_type == "MARGINBOTTOM":
+        content = get_margin_bottom(target,style_command)
         put_content("mystyle",content)
 
 
