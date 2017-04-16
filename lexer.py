@@ -3,11 +3,8 @@ def lexer(filecontents):
     tok=""
     string=""
     state = 0
-    #istag = 0
-    #tag = ""
-    #n = ""
-    #varstarted = 0
-    #var = ""
+    style = ""
+    style_state = 0
     filecontents = list(filecontents)
     for char in filecontents:
         tok += char
@@ -15,6 +12,7 @@ def lexer(filecontents):
             if state == 0:
                 tok = ""
         elif tok == "p " or tok == "h1 " or tok == "h2 " or tok == "h3 " or tok == "h4 " or tok == "h5 " or tok == "h6 " or tok == "div ":
+            #html tags in here
             tokens.append("TAG:" + tok)
             tok = ""
         elif tok == "\n" or tok == "<EOF>": #what will happen if we reach a new line or the end of the file?
@@ -24,9 +22,6 @@ def lexer(filecontents):
             tok = ""
         elif tok == "PUT " or tok == "put ":
             tokens.append("PUT")
-            tok = ""
-        elif tok == "STYLE " or tok == "style ":
-            tokens.append("STYLE")
             tok = ""
         elif tok == "ADDINSIDE " or tok == "addinside ":
             tokens.append("ADDINSIDE")
@@ -43,6 +38,9 @@ def lexer(filecontents):
         elif tok == "ADD " or tok == "add ":
             tokens.append("ADD")
             tok = ""
+        elif tok == "STYLE" or tok == "style ":
+            tokens.append("STYLE")
+            tok = ""
         elif tok == "\"" or tok == " \"":
             if state == 0:
                 state = 1
@@ -54,6 +52,24 @@ def lexer(filecontents):
         elif state == 1:
             string += tok
             tok = ""
+        elif tok == "(" or tok == ")":
+            if style_state == 0:
+                style_state = 1
+            elif style_state == 1:
+                style = style + ")"
+                tokens.append("STYLE_COMMAND:" + style)
+                if style == "(bluetext)" or style == "(redtext)" or style == "(greentext)" or style == "(orangetext)" or style == "(purpletext)" or style == "(whitetext)" or style == "(blacktext)" or style[0:16] + style[-1] == "(customColortext)":
+                    tokens.append("FONTCOLOR")
+                elif style == "(bluebackground)" or style == "(redbackground)" or style == "(greenbackground)" or style == "(orangebackground)" or style == "(purplebackground)" or style == "(blackbackground)" or style == "(yellowbackground)" or style[0:22] + style[-1] =="(customColorbackground)":
+                    tokens.append("BACKGROUNDCOLOR")
+                    print(style[23:-1])
+                style = ""
+                style_state = 0
+                tok = ""
+        elif style_state == 1:
+            style += tok
+            tok = ""
+
 
     print(tokens)
     return tokens

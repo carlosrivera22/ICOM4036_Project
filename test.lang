@@ -6,4 +6,6 @@ addinside "myid" h1 "header"
 
 put "header" "Hello World!"
 
-style "header" "bluetext"
+style "header" (customColortext:#81ff00)
+
+style "myid" (bluebackground)
