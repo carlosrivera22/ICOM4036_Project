@@ -28,31 +28,43 @@ def add(tag, id):
 def add_last(tag,id):
         contents = get_file_contents("index.html")
         index = find_closing_body_index()
-        tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
+        if(tag == "img"):
+            tag = "<" + tag + " id='"+ id + "' src='' >\n"
+        else:
+            tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
         contents.insert(index,tag)
         write_in_file("index.html",contents)
 
 def add_inside(target,tag,id):
         contents = get_file_contents("index.html")
         index = find_index_inside(target)
-        tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
+        if(tag == "img"):
+            tag = "<" + tag + " id='"+ id + "' src='' >\n"
+        else:
+            tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
         contents.insert(index,tag)
         write_in_file("index.html",contents)
-
 
 def add_before(target,tag,id):
         contents = get_file_contents("index.html")
         index = find_index_before(target)
-        tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
+        if(tag == "img"):
+            tag = "<" + tag + " id='"+ id + "' src='' >\n"
+        else:
+            tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
         contents.insert(index,tag)
         write_in_file("index.html",contents)
 
-def add_after(target,tag,id):
+def add_after(target,tag,id,path):
         contents = get_file_contents("index.html")
         index = find_index_after(target)
-        tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
+        if(tag == "img"):
+            tag = "<" + tag + " id='"+ id + "' src='" + path + "' >\n"
+        else:
+            tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
         contents.insert(index,tag)
         write_in_file("index.html",contents)
+
 
 
 

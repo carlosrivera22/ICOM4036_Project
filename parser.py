@@ -17,8 +17,12 @@ def parser(toks):
             add_before(toks[i+1][8:-1],toks[i+2][4:], toks[i+3][8:-1])
             i+=4
         elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2][0:3] + " " + toks[i+3][0:6] == "ADDAFTER STRING TAG STRING":
-            add_after(toks[i+1][8:-1],toks[i+2][4:], toks[i+3][8:-1])
-            i+=4
+            if(toks[i+2][4:] == "img"):
+                add_after(toks[i+1][8:-1],toks[i+2][4:], toks[i+3][8:-1], toks[i+4][8:-1])
+                i+=5
+            else:
+                add_after(toks[i+1][8:-1],toks[i+2][4:], toks[i+3][8:-1],"")
+                i+=4
         elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2][0:6] == "ADD TAG STRING":
             add(toks[i+1][4:],toks[i+2][8:-1])
             i+=3
@@ -28,4 +32,3 @@ def parser(toks):
             i+=4
         else:
             i+=1
-        

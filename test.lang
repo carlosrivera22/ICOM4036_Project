@@ -21,3 +21,9 @@ style "header" (marginleft:100px)
 style "par1" (paddingleft:100px)
 
 style "myid" (width:500px)
+
+addafter "myid" img "myimage" "img/leia_trejo.jpg"
+
+style "myimage" (width:35%)
+
+style "myimage" (height:35%)

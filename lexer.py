@@ -12,7 +12,7 @@ def lexer(filecontents):
         if tok == " ": #ignore spaces
             if state == 0:
                 tok = ""
-        elif tok == "p " or tok == "h1 " or tok == "h2 " or tok == "h3 " or tok == "h4 " or tok == "h5 " or tok == "h6 " or tok == "div ":
+        elif tok == "p " or tok == "h1 " or tok == "h2 " or tok == "h3 " or tok == "h4 " or tok == "h5 " or tok == "h6 " or tok == "div " or tok == "img":
             #html tags in here
             tokens.append("TAG:" + tok)
             tok = ""
