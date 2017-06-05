@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<head>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+</head>
 <title>
 </title>
 <body>
@@ -8,16 +12,23 @@
 Hello World!
 </h1 ><!-- header-->
 </div ><!-- myid-->
-<img id='myimage' src='img/leia_trejo.jpg' >
+<div id='myrow' class='row'> 
+<div id='mycol2' class='col-md-6'> 
+Second Half of the row
+</div><!-- mycol2-->
+<div id='mycol' class='col-md-6'> 
+First Half of the row
+</div><!-- mycol-->
+</div><!-- myrow-->
 <p  id='par1'>
-This is my first paragraph of the project.
 </p ><!-- par1-->
 </body>
 <style id='mystyle'>
-#myimage{height:35%}
-#myimage{width:35%}
+#mycol2{color:#81ff00}
+#mycol{color:#81ff00}
+#mycol{background-color:blue;}
+#mycol2{background-color:red;}
 #myid{width:500px}
-#par1{padding-left:100px}
 #header{margin-left:100px}
 #header{font-size:100px}
 #myid{background-color:blue;}

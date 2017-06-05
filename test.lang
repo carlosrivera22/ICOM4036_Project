@@ -14,16 +14,24 @@ style "header" (fontsize:100px)
 
 addafter "myid" p "par1"
 
-put "par1" "This is my first paragraph of the project."
-
 style "header" (marginleft:100px)
-
-style "par1" (paddingleft:100px)
 
 style "myid" (width:500px)
 
-addafter "myid" img "myimage" "img/leia_trejo.jpg"
+addafter "myid" row "myrow"
 
-style "myimage" (width:35%)
+addinside "myrow" col-md-6 "mycol"
 
-style "myimage" (height:35%)
+put "mycol" "First Half of the row"
+
+addinside "myrow" col-md-6 "mycol2"
+
+put "mycol2" "Second Half of the row"
+
+style "mycol2" (redbackground)
+
+style "mycol" (bluebackground)
+
+style "mycol" (customColortext:#81ff00)
+
+style "mycol2" (customColortext:#81ff00)

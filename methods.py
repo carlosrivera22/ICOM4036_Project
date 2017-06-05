@@ -4,7 +4,7 @@
 def create_file(filename):
     filename = filename[8:-1] + ".html"
     file = open(filename,"w+")
-    file.write("<!DOCTYPE html>\n<html>\n<title>\n</title>\n<body>\n</body>\n</html>")
+    file.write("<!DOCTYPE html>\n<html>\n<head>\n<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>\n<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>\n</head>\n<title>\n</title>\n<body>\n</body>\n</html>")
 
 def get_file_contents(filename):
     f = open(filename,"r")
@@ -18,38 +18,38 @@ def write_in_file(filename, contents):
     f.write(contents)
     f.close()
 
-def add(tag, id):
+def add(tag, id, path):
         contents = get_file_contents("index.html")
         index = find_body_index()
         tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
         contents.insert(index,tag)
         write_in_file("index.html",contents)
 
-def add_last(tag,id):
+def add_last(tag,id,path):
         contents = get_file_contents("index.html")
         index = find_closing_body_index()
         if(tag == "img"):
-            tag = "<" + tag + " id='"+ id + "' src='' >\n"
+            tag = "<" + tag + " id='"+ id + "' src='" + path + "' ><!-- " + id + "-->\n"
         else:
             tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
         contents.insert(index,tag)
         write_in_file("index.html",contents)
 
-def add_inside(target,tag,id):
+def add_inside(target,tag,id,path):
         contents = get_file_contents("index.html")
         index = find_index_inside(target)
         if(tag == "img"):
-            tag = "<" + tag + " id='"+ id + "' src='' >\n"
+            tag = "<" + tag + " id='"+ id + "' src='" + path + "' ><!-- " + id + "-->\n"
         else:
             tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
         contents.insert(index,tag)
         write_in_file("index.html",contents)
 
-def add_before(target,tag,id):
+def add_before(target,tag,id,path):
         contents = get_file_contents("index.html")
         index = find_index_before(target)
         if(tag == "img"):
-            tag = "<" + tag + " id='"+ id + "' src='' >\n"
+            tag = "<" + tag + " id='"+ id + "' src='" + path + "' ><!-- " + id + "-->\n"
         else:
             tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
         contents.insert(index,tag)
@@ -59,11 +59,34 @@ def add_after(target,tag,id,path):
         contents = get_file_contents("index.html")
         index = find_index_after(target)
         if(tag == "img"):
-            tag = "<" + tag + " id='"+ id + "' src='" + path + "' >\n"
+            tag = "<" + tag + " id='"+ id + "' src='" + path + "' ><!-- " + id + "-->\n"
         else:
             tag = "<" + tag + " id='"+ id + "'>\n" + "</" + tag + "><!-- " + id + "-->\n"
         contents.insert(index,tag)
         write_in_file("index.html",contents)
+
+def add_bootstrap_after(target,component,id):
+        contents = get_file_contents("index.html")
+        index = find_index_after(target)
+        if(component == "row"):
+            tag = "<div id='" + id + "' class='" + component + "'> \n</div><!-- " + id + "-->\n"
+        contents.insert(index,tag)
+        write_in_file("index.html",contents)
+
+def add_bootstrap_before(target,component,id):
+    contents = get_file_contents("index.html")
+    index = find_index_before(target)
+    if(component == "row"):
+        tag = "<div id='" + id + "' class='" + component + "'> \n</div><!-- " + id + "-->\n"
+    contents.insert(index,tag)
+    write_in_file("index.html",contents)
+
+def add_bootstrap_inside(target,component,id):
+    contents = get_file_contents("index.html")
+    index = find_index_inside(target)
+    tag = "<div id='" + id + "' class='" + component + "'> \n</div><!-- " + id + "-->\n"
+    contents.insert(index,tag)
+    write_in_file("index.html",contents)
 
 
 
@@ -129,7 +152,7 @@ def get_width(target,width):
 
 def style(target,style_command,style_type,style_init): #we need to make a list of style commands, validate them depending on the tag...
     if style_init == False:
-        add_last("style","mystyle")
+        add_last("style","mystyle","")
     if style_type == "FONTCOLOR":
         content = get_font_color(target,style_command)
         put_content("mystyle",content)

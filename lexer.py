@@ -16,6 +16,15 @@ def lexer(filecontents):
             #html tags in here
             tokens.append("TAG:" + tok)
             tok = ""
+        elif tok == "row" or tok == "table" or tok == "button" or tok == "jumbotron" or tok == "panel" or tok == "list-group" or tok == "navbar":
+            tokens.append("BOOTSTRAP:" + tok)
+            tok = ""
+        elif tok == "col-md-1" or tok == "col-md-2" or tok == "col-md-3" or tok == "col-md-4" or  tok == "col-md-5" or  tok == "col-md-6" or tok == "col-md-7" or tok == "col-md-8" or tok == "col-md-9" or tok == "col-md-10":
+            tokens.append("BOOTSTRAP:" + tok)
+            tok = ""
+        elif tok == "col-md-11" or tok == "col-md-12":
+            tokens.append("BOOTSTRAP:" + tok)
+            tok = ""
         elif tok == "\n" or tok == "<EOF>": #what will happen if we reach a new line or the end of the file?
             tok = ""
         elif tok == "START " or tok == "start ":
