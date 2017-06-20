@@ -25,6 +25,18 @@ def lexer(filecontents):
         elif tok == "col-md-11" or tok == "col-md-12":
             tokens.append("BOOTSTRAP:" + tok)
             tok = ""
+        elif tok == "col-sm-1" or tok == "col-sm-2" or tok == "col-sm-3" or tok == "col-sm-4" or  tok == "col-sm-5" or  tok == "col-sm-6" or tok == "col-sm-7" or tok == "col-sm-8" or tok == "col-sm-9" or tok == "col-sm-10":
+            tokens.append("BOOTSTRAP:" + tok)
+            tok = ""
+        elif tok == "col-sm-11" or tok == "col-sm-12":
+            tokens.append("BOOTSTRAP:" + tok)
+            tok = ""
+        elif tok == "col-lg-1" or tok == "col-lg-2" or tok == "col-lg-3" or tok == "col-lg-4" or  tok == "col-lg-5" or  tok == "col-lg-6" or tok == "col-lg-7" or tok == "col-lg-8" or tok == "col-lg-9" or tok == "col-lg-10":
+            tokens.append("BOOTSTRAP:" + tok)
+            tok = ""
+        elif tok == "col-lg-11" or tok == "col-lg-12":
+            tokens.append("BOOTSTRAP:" + tok)
+            tok = ""
         elif tok == "\n" or tok == "<EOF>": #what will happen if we reach a new line or the end of the file?
             tok = ""
         elif tok == "START " or tok == "start ":

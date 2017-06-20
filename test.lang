@@ -20,11 +20,11 @@ style "myid" (width:500px)
 
 addafter "myid" row "myrow"
 
-addinside "myrow" col-md-6 "mycol"
+addinside "myrow" col-lg-6 "mycol"
 
 put "mycol" "First Half of the row"
 
-addinside "myrow" col-md-6 "mycol2"
+addinside "myrow" col-lg-6 "mycol2"
 
 put "mycol2" "Second Half of the row"
 
