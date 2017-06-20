@@ -1,37 +1,57 @@
 start "index"
 
-add div "myid"
+add div "profile"
 
-addinside "myid" h1 "header"
+style "profile" (customColorbackground:#18BC9C)
 
-put "header" "Hello World!"
+style "profile" (paddingtop:205px)
 
-style "header" (customColortext:#81ff00)
+addbefore "profile" div "bar"
 
-style "myid" (bluebackground)
+style "bar" (customColorbackground:#2C3E50)
 
-style "header" (fontsize:100px)
+style "bar" (paddingtop:80px)
 
-addafter "myid" p "par1"
+addinside "bar" h1 "navbar"
 
-style "header" (marginleft:100px)
+put "navbar" "Here goes the navigation bar"
 
-style "myid" (width:500px)
+style "navbar" (paddingbottom:50px)
 
-addafter "myid" row "myrow"
+style "navbar" (paddingleft:50px)
 
-addinside "myrow" col-lg-6 "mycol"
+style "profile" (margintop:-2%)
 
-put "mycol" "First Half of the row"
+addinside "profile" div "image-div"
 
-addinside "myrow" col-lg-6 "mycol2"
+addbefore "image-div" h3 "profile-title"
 
-put "mycol2" "Second Half of the row"
+addinside "image-div" img "profile-image" "img/stormtropper.png"
 
-style "mycol2" (redbackground)
+put "profile-title" "The Profile"
 
-style "mycol" (bluebackground)
+style "profile-title" (marginleft:45%)
 
-style "mycol" (customColortext:#81ff00)
+style "profile-image" (width:20%)
 
-style "mycol2" (customColortext:#81ff00)
+style "profile-image" (marginleft:40%)
+
+style "profile-image" (marginbottom:5%)
+
+style "navbar" (customColortext:white)
+
+style "profile" (customColortext:white)
+
+addafter "profile" div "gallery"
+
+style "gallery" (customColorbackground:white)
+
+style "gallery" (paddingtop:50px)
+
+addinside "gallery" h1 "gallery-title"
+
+put "gallery-title" "Gallery"
+
+style "gallery-title" (marginleft:45%)
+
+style "gallery-title" (paddingbottom:30%)
