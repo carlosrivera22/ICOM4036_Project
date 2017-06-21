@@ -264,7 +264,14 @@ def find_closing_body_index():
 def add_jumbotron_after(target, id, title, subtitle):
     contents = get_file_contents("index.html")
     index = find_index_after(target)
-    element = "<div class=\"jumbotron\">\n  <div class=\"container\">\n    <h1>"+title+"</h1>\n    <p>"+subtitle+"</p>\n  </div>\n</div>"
+    element = "<div class=\"jumbotron\">\n  <div class=\"container\">\n    <h1>"+title+"</h1>\n    <p>"+subtitle+"</p>\n  </div>\n</div>\n"
+    contents.insert(index,element)
+    write_in_file("index.html",contents)
+
+def add_jumbotron_before(target, id, title, subtitle):
+    contents = get_file_contents("index.html")
+    index = find_index_before(target)
+    element = "<div class=\"jumbotron\">\n  <div class=\"container\">\n    <h1>"+title+"</h1>\n    <p>"+subtitle+"</p>\n  </div>\n</div>\n"
     contents.insert(index,element)
     write_in_file("index.html",contents)
 
@@ -274,6 +281,18 @@ def add_first_jumbotron(id, title, subtitle):
     element = "<div class=\"jumbotron\">\n  <div class=\"container\">\n    <h1>"+title+"</h1>\n    <p>"+subtitle+"</p>\n  </div>\n</div>"
     contents.insert(index,element)
     write_in_file("index.html",contents)
+
+def add_signup_after(target,id):
+    contents = get_file_contents("index.html")
+    index = find_index_after(target)
+    element = "<div class= \"container\">\n  <div class=\"row\">\n    <div class=\"col-sm-6 col-md-offset-3\">\n       <div class=\"well\">"
+    element+= "<h1>Sign up for Newsletter</h1>\n    <hr>\n    <form action=\"#\">\n    <div class=\"input-group\">\n      "
+    element+= "<input style=\"width:320px;\" class=\"btn btn-lg\" name=\"email\" id=\"email\" type=\"email\" placeholder=\"Your Email\" require>\n      "
+    element+= "<button class=\"btn btn-info btn-lg\" type=\"submit\">Submit</button>\n    </div>\n    </form>\n"
+    element+= "</div>\n    </div>\n  </div>\n</div>"
+    contents.insert(index, element)
+    write_in_file("index.html", contents)
+
 
 def add_navbar(sectionsArr):
     if isinstance(sectionsArr, list):

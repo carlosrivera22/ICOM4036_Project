@@ -85,6 +85,9 @@ def lexer(filecontents):
         elif tok == "}":
             tokens.append("CLOSE_BRACE")
             tok = ""
+        elif tok == "SIGNUP" or tok == "signup":
+            tokens.append("SIGNUP")
+            tok = ""
         elif tok == "\"" or tok == " \"":
             if state == 0:
                 state = 1
