@@ -282,7 +282,7 @@ def add_navbar(sectionsArr):
         element = "<nav class=\"navbar navbar-default navbar-fixed-top\">\n  <div class=\"container\">\n    <ul class=\"nav navbar-nav\">\n"
         for i in range(len(sectionsArr)):
             if isinstance(sectionsArr[i], list):
-                element += "      <li> <a ref=\"#"+sectionsArr[i][1]+"\"> "+sectionsArr[i][0]+" </a> </li>\n"
+                element += "      <li> <a href=\"#"+sectionsArr[i][1]+"\"> "+sectionsArr[i][0]+" </a> </li>\n"
             else:
                 raise ValueError('Did not pass a list')
         element +="    </ul>\n  </div>\n</nav>\n"
