@@ -55,3 +55,7 @@ put "gallery-title" "Gallery"
 style "gallery-title" (marginleft:45%)
 
 style "gallery-title" (paddingbottom:30%)
+
+add jumbotron "jumbo" "This is the Jumbotron" "This is the Jumbotron Subtitle."
+
+add navbar {["Home","home"],["Gallery","gal"],["About","about"],["Contact","contact"]}

@@ -16,7 +16,7 @@ def lexer(filecontents):
             #html tags in here
             tokens.append("TAG:" + tok)
             tok = ""
-        elif tok == "row" or tok == "table" or tok == "button" or tok == "jumbotron" or tok == "panel" or tok == "list-group" or tok == "navbar":
+        elif tok == "row" or tok == "table" or tok == "button" or tok == "panel" or tok == "list-group":
             tokens.append("BOOTSTRAP:" + tok)
             tok = ""
         elif tok == "col-md-1" or tok == "col-md-2" or tok == "col-md-3" or tok == "col-md-4" or  tok == "col-md-5" or  tok == "col-md-6" or tok == "col-md-7" or tok == "col-md-8" or tok == "col-md-9" or tok == "col-md-10":
@@ -63,6 +63,27 @@ def lexer(filecontents):
         elif tok == "STYLE" or tok == "style ":
             style_activate = 1
             tokens.append("STYLE")
+            tok = ""
+        elif tok == "jumbotron" or tok == "JUMBOTRON":
+            tokens.append("JUMBOTRON")
+            tok = ""
+        elif tok == "navbar" or tok == "NAVBAR":
+            tokens.append("NAVBAR")
+            tok = ""
+        elif tok == "[":
+            tokens.append("OPEN_BRACKET")
+            tok = ""
+        elif tok == "]":
+            tokens.append("CLOSE_BRACKET")
+            tok = ""
+        elif tok == ",":
+            tokens.append("COMA")
+            tok = ""
+        elif tok == "{":
+            tokens.append("OPEN_BRACE")
+            tok = ""
+        elif tok == "}":
+            tokens.append("CLOSE_BRACE")
             tok = ""
         elif tok == "\"" or tok == " \"":
             if state == 0:
