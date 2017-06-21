@@ -1,35 +1,51 @@
-<<<<<<< HEAD
 start "index"
+
 add div "profile"
+
 style "profile" (customColorbackground:#18BC9C)
+
 style "profile" (paddingtop:205px)
+
 addbefore "profile" div "bar"
-style "bar" (customColorbackground:#2C3E50)
-style "bar" (paddingtop:80px)
-addinside "bar" h1 "navbar"
-put "navbar" "Here goes the navigation bar"
-style "navbar" (paddingbottom:50px)
-style "navbar" (paddingleft:50px)
+
 style "profile" (margintop:-2%)
+
 addinside "profile" div "image-div"
+
 addbefore "image-div" h3 "profile-title"
+
 addinside "image-div" img "profile-image" "img/stormtropper.png"
+
 put "profile-title" "The Profile"
+
 style "profile-title" (marginleft:45%)
+
 style "profile-image" (width:20%)
+
 style "profile-image" (marginleft:40%)
+
 style "profile-image" (marginbottom:5%)
+
 style "navbar" (customColortext:white)
+
 style "profile" (customColortext:white)
+
 addafter "profile" div "gallery"
+
 style "gallery" (customColorbackground:white)
+
 style "gallery" (paddingtop:50px)
+
 addinside "gallery" h1 "gallery-title"
+
 put "gallery-title" "Gallery"
+
 style "gallery-title" (marginleft:45%)
+
 style "gallery-title" (paddingbottom:30%)
-addbefore "gallery" jumbotron "jumbo" "This is the Jumbotron" "This is the Jumbotron Subtitle."
-addafter "gallery" signup "signup"
+
+add jumbotron "jumbo" "This is the Jumbotron" "This is the Jumbotron Subtitle."
+
 add navbar {["Home","home"],["Gallery","gal"],["About","about"],["Contact","contact"]}
-=======
->>>>>>> b2e5e9c86c26406bb6e6b7c3caca910cf392699b
+
+

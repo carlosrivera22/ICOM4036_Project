@@ -285,7 +285,7 @@ def add_first_jumbotron(id, title, subtitle):
 def add_signup_after(target,id):
     contents = get_file_contents("index.html")
     index = find_index_after(target)
-    element = "<div class= \"container\">\n  <div class=\"row\">\n    <div class=\"col-sm-6 col-md-offset-3\">\n       <div class=\"well\">"
+    element = "<div class= \"container\">\n  <div class=\"row\">\n    <div class=\"col-sm-6 col-md-offset-3\">\n       <div class=\"well\">\n"
     element+= "<h1>Sign up for Newsletter</h1>\n    <hr>\n    <form action=\"#\">\n    <div class=\"input-group\">\n      "
     element+= "<input style=\"width:320px;\" class=\"btn btn-lg\" name=\"email\" id=\"email\" type=\"email\" placeholder=\"Your Email\" require>\n      "
     element+= "<button class=\"btn btn-info btn-lg\" type=\"submit\">Submit</button>\n    </div>\n    </form>\n"
@@ -301,7 +301,7 @@ def add_navbar(sectionsArr):
         element = "<nav class=\"navbar navbar-default navbar-fixed-top\">\n  <div class=\"container\">\n    <ul class=\"nav navbar-nav\">\n"
         for i in range(len(sectionsArr)):
             if isinstance(sectionsArr[i], list):
-                element += "      <li> <a ref=\"#"+sectionsArr[i][1]+"\"> "+sectionsArr[i][0]+" </a> </li>\n"
+                element += "      <li> <a href=\"#"+sectionsArr[i][1]+"\"> "+sectionsArr[i][0]+" </a> </li>\n"
             else:
                 raise ValueError('Did not pass a list')
         element +="    </ul>\n  </div>\n</nav>\n"
