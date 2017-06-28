@@ -1,13 +1,11 @@
-<<<<<<< HEAD
 start "index"
 add div "profile"
 style "profile" (customColorbackground:#18BC9C)
 style "profile" (paddingtop:205px)
 addbefore "profile" div "bar"
 style "bar" (customColorbackground:#2C3E50)
-style "bar" (paddingtop:80px)
+style "bar" (paddingtop:10px)
 addinside "bar" h1 "navbar"
-put "navbar" "Here goes the navigation bar"
 style "navbar" (paddingbottom:50px)
 style "navbar" (paddingleft:50px)
 style "profile" (margintop:-2%)
@@ -30,6 +28,4 @@ style "gallery-title" (marginleft:45%)
 style "gallery-title" (paddingbottom:30%)
 addbefore "gallery" jumbotron "jumbo" "This is the Jumbotron" "This is the Jumbotron Subtitle."
 addafter "gallery" signup "signup"
-add navbar {["Home","home"],["Gallery","gal"],["About","about"],["Contact","contact"]}
-=======
->>>>>>> b2e5e9c86c26406bb6e6b7c3caca910cf392699b
+add navbar {["Home","home"],["Gallery","gallery"],["About","about"],["Contact","contact"]}
