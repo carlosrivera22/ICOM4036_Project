@@ -142,5 +142,5 @@ def lexer(filecontents):
 
 
 
-    print(tokens)
+    #print(tokens)
     return tokens
