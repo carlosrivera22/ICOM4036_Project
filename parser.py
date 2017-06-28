@@ -5,7 +5,7 @@ def parser(toks):
     style_init = False
     i = 0
     if toks[len(toks)-1][0:3] == "TAG":
-        print("Error: Missing parameter")
+        print("Error: Missing \" ")
         raise SystemExit
     if toks[len(toks)-1] == "STYLE":
         print("Error in STYLE: Missing target id parameter")
