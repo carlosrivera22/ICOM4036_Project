@@ -2,7 +2,7 @@
 #methods used in the parser
 
 def create_file(filename):
-    filename = filename[8:-1] + ".html"
+    filename = "index.html"
     file = open(filename,"w+")
     file.write("<!DOCTYPE html>\n<html>\n<head>\n<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>\n<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>\n</head>\n<title>\n</title>\n<body>\n</body>\n</html>")
 
@@ -293,6 +293,23 @@ def add_signup_after(target,id):
     contents.insert(index, element)
     write_in_file("index.html", contents)
 
+def add_gallery_after(target,id):
+    contents = get_file_contents("index.html")
+    index = find_index_after(target)
+    element = "<div id='" + id + "'><div class='gallery_product col-lg-4 col-md-4 col-sm-12 col-xs-12 hdpe'><img src='http://fakeimg.pl/365x365/' class='img-responsive'></div>"
+    element+= "<div class='gallery_product col-lg-4 col-md-4 col-sm-12 col-xs-12 hdpe'><img src='http://fakeimg.pl/365x365/' class='img-responsive'></div>"
+    element+= "<div class='gallery_product col-lg-4 col-md-4 col-sm-12 col-xs-12  hdpe'><img src='http://fakeimg.pl/365x365/' class='img-responsive'></div>" + "</div><!-- " + id + "-->\n"
+    contents.insert(index, element)
+    write_in_file("index.html", contents)
+
+def add_gallery_inside(target,id):
+    contents = get_file_contents("index.html")
+    index = find_index_inside(target) + 1
+    element = "<br><br><div id='" + id + "'><div class='gallery_product col-lg-4 col-md-4 col-sm-12 col-xs-12 hdpe'><img src='http://fakeimg.pl/365x365/' class='img-responsive'></div>"
+    element+= "<div class='gallery_product col-lg-4 col-md-4 col-sm-12 col-xs-12 hdpe'><img src='http://fakeimg.pl/365x365/' class='img-responsive'></div>"
+    element+= "<div class='gallery_product col-lg-4 col-md-4 col-sm-12 col-xs-12 hdpe'><img src='http://fakeimg.pl/365x365/' class='img-responsive'></div>" + "</div><!-- " + id + "-->\n"
+    contents.insert(index, element)
+    write_in_file("index.html", contents)
 
 def add_navbar(sectionsArr):
     if isinstance(sectionsArr, list):

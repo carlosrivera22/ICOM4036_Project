@@ -1,4 +1,4 @@
-start "index"
+start "test"
 add div "profile"
 style "profile" (customColorbackground:#18BC9C)
 style "profile" (paddingtop:205px)
@@ -24,8 +24,9 @@ style "gallery" (customColorbackground:white)
 style "gallery" (paddingtop:50px)
 addinside "gallery" h1 "gallery-title"
 put "gallery-title" "Gallery"
-style "gallery-title" (marginleft:45%)
+style "gallery-title" (marginleft:2%)
 style "gallery-title" (paddingbottom:30%)
 addbefore "gallery" jumbotron "jumbo" "This is the Jumbotron" "This is the Jumbotron Subtitle."
 addafter "gallery" signup "signup"
 add navbar {["Home","home"],["Gallery","gallery"],["About","about"],["Contact","contact"]}
+addinside "gallery-title" gallery "my-gallery"

@@ -11,11 +11,11 @@ def parser(toks):
         print("Error in STYLE: Missing target id parameter")
         raise SystemExit
     while(i < len(toks)):
-        if len(toks) < 2:
-            print("Error in start command: Start command not found")
+        if toks[i] == "START" and toks[i+1][0:6] != "STRING":
+            print("Error in start command: Missing filename parameter")
             raise SystemExit
         elif "START" not in toks:
-            print("Error in start command: Missing filename parameter")
+            print("Error in start command: Start command not found")
             raise SystemExit
         elif toks[i] + " " + toks[i+1][0:6] == "START STRING":
             create_file(toks[i+1])
@@ -69,6 +69,12 @@ def parser(toks):
         elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2][0:13] == "STYLE STRING STYLE_COMMAND":
             style(toks[i+1][8:-1],toks[i+2][15:-1],toks[i+3],style_init)
             style_init = True
+            i+=4
+        elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2] + " " +toks[i+3][0:6]  == "ADDAFTER STRING GALLERY STRING":
+            add_gallery_after(toks[i+1][8:-1], toks[i+3][8:-1])
+            i+=4
+        elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2] + " " +toks[i+3][0:6]  == "ADDINSIDE STRING GALLERY STRING":
+            add_gallery_inside(toks[i+1][8:-1], toks[i+3][8:-1])
             i+=4
         elif toks[i] + " " + toks[i+1] + " " + toks[i+2][0:6] + " " + toks[i+3][0:6] + " " + toks[i+4][0:6] == "ADD JUMBOTRON STRING STRING STRING":
             add_first_jumbotron(toks[i+2][8:-1], toks[i+3][8:-1], toks[i+4][8:-1])

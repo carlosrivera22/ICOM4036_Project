@@ -88,6 +88,9 @@ def lexer(filecontents):
         elif tok == "SIGNUP" or tok == "signup":
             tokens.append("SIGNUP")
             tok = ""
+        elif tok == "GALLERY" or tok == "gallery":
+            tokens.append("GALLERY")
+            tok = ""
         elif tok == "\"" or tok == " \"":
             if state == 0:
                 state = 1
