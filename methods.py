@@ -4,7 +4,7 @@
 def create_file(filename):
     filename = "index.html"
     file = open(filename,"w+")
-    file.write("<!DOCTYPE html>\n<html>\n<head>\n<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>\n<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>\n</head>\n<title>\n</title>\n<body>\n</body>\n</html>")
+    file.write("<!DOCTYPE html>\n<html>\n<head>\n<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>\n<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>\n<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>\n</head>\n<title>\n</title>\n<body>\n</body>\n</html>")
 
 def get_file_contents(filename):
     f = open(filename,"r")
@@ -310,6 +310,17 @@ def add_gallery_inside(target,id):
     element+= "<div class='gallery_product col-lg-4 col-md-4 col-sm-12 col-xs-12 hdpe'><img src='http://fakeimg.pl/365x365/' class='img-responsive'></div>" + "</div><!-- " + id + "-->\n"
     contents.insert(index, element)
     write_in_file("index.html", contents)
+
+def add_footer():
+    contents = get_file_contents("index.html")
+    index = len(contents)-1
+    element = "<div class='container-fluid bg-primary py-3'><div class='container'><div class='row py-3'><div class='col-md-9'><p class='text-white'></p></div><div class='col-md-3'>"
+    element += "<div class='d-inline-block'><div class='bg-circle-outline d-inline-block'><a href='https://www.facebook.com/' class='text-white'><i class='fa fa-2x fa-fw fa-facebook'></i></a></div>"
+    element += "<div class='bg-circle-outline d-inline-block'><a href='https://twitter.com/' class='text-white'><i class='fa fa-2x fa-fw fa-twitter'></i></a></div>"
+    element += "<div class='bg-circle-outline d-inline-block'><a href='https://www.linkedin.com/company/' class='text-white'><i class='fa fa-2x fa-fw fa-linkedin'></i></a></div></div></div></div></div></div>"
+    contents.insert(index,element)
+    write_in_file("index.html", contents)
+    print("adding footer..." + str(index))
 
 def add_navbar(sectionsArr):
     if isinstance(sectionsArr, list):

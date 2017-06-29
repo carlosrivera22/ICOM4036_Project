@@ -20,6 +20,9 @@ def parser(toks):
         elif toks[i] + " " + toks[i+1][0:6] == "START STRING":
             create_file(toks[i+1])
             i+=2
+        elif toks[i] + " " + toks[i+1] == "ADD FOOTER":
+            add_footer()
+            i+=2
         elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2][0:6] == "PUT STRING STRING":
             put_content(toks[i+1][8:-1],toks[i+2][8:-1])
             i+=3

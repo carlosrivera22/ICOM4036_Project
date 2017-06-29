@@ -30,3 +30,4 @@ addbefore "gallery" jumbotron "jumbo" "This is the Jumbotron" "This is the Jumbo
 addafter "gallery" signup "signup"
 add navbar {["Home","home"],["Gallery","gallery"],["About","about"],["Contact","contact"]}
 addinside "gallery-title" gallery "my-gallery"
+add footer
