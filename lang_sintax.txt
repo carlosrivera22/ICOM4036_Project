@@ -1,9 +1,0 @@
-start "name_file_without_extension"
-
-add "tag_to_add" "tag_to_add_id"
-
-addinside "target_id" "tag_to_add" "tag_to_add_id"
-
-put "target_id" "content"
-
-style "target_id" "style_command"
